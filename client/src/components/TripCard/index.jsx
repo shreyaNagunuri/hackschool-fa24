@@ -1,7 +1,8 @@
 import Image from "next/image";
 import styles from "./style.module.css";
 
-const TripCard = ({ destination, startDate, endDate, journalEntry }) => {
+// Add your props inside the ()
+const TripCard = () => {
   //Code here
 };
 
