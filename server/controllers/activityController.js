@@ -12,14 +12,14 @@ const getActivity = async (req, res) => {
 }
 
 const postActivity = async (req, res) => {
-    /*
-    This controller should retrieve the activity object from the request body (req.body.activity).
-    Check for the following properties: destination, activitySpot,rating.
-    See if destination, activitySpot, and rating exist.
-    If not, send an error response back to the client.
-    Otherwise, send a success response back to the client.
-    Return a JSON object containing the activity data.
-    */
+    const { activity } = req.body;
+    const { destination, activitySpot, rating, review } = activity;
+
+    if (!destination || !activitySpot || !rating) {
+        return res.status(400).json({ error: 'Invalid request' });
+    }
+
+    res.status(200).json({ activity });
 }
 
 module.exports = { getActivity, postActivity };

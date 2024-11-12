@@ -13,11 +13,15 @@ const getTrip = async (req, res) => {
 }
 
 const getTripName = async (req, res) => {
-   /*
-    Create a GET route that accepts a trip’s name as a query parameter and responds with a unique message.
-    Check for the name query parameter.
-    Respond with a JSON object that says "We are going to [name]."
-   */
+    const name = req.query.name;
+    
+    // check if the name exists
+    if (!name) {
+        return res.status(400).json({ message: 'Name query parameter is required.' });
+    }
+
+    res.status(200).json({ message: `We are going to ${name}.` });
 }
+
 
 module.exports = { getTrip, getTripName };

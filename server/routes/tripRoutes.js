@@ -8,5 +8,8 @@ const activityController = require('../controllers/activityController');
 router.get('/trip', tripController.getTrip);
 router.get('/name', tripController.getTripName);
 
+router.get('/activity', activityController.getActivity);
+router.post('/activity', activityController.postActivity);
+
 
 module.exports = router;
